@@ -1,19 +1,21 @@
 <template>
   <div>
     <h1>Home</h1>
+    <br />
+    ClientID: {{ auth0CliendId }}
 
-    <div v-if="!isLogged" >
+    <div v-if="!isLogged">
       <button type="button" @click="handleLogin()">Login</button>
     </div>
-    <div v-else>
-       <button type="button" @click="handleLogout()">Logout</button>
-    </div>
 
+    <div v-else>
+      <button type="button" @click="handleLogout()">Logout</button>
+    </div>
   </div>
 </template>
 
 <script>
-import { login, logout, isLogged } from '../utils/auth';
+import { login, logout, isLogged } from "../utils/auth";
 
 export default {
   name: "Home",
@@ -24,12 +26,13 @@ export default {
     handleLogout() {
       this.isLogged = false;
       logout();
-    }
+    },
   },
   data() {
     return {
-      isLogged: isLogged()
-    }
+      isLogged: isLogged(),
+      auth0CliendId: process.env.VUE_APP_AUTHO_CLIENTID,
+    };
   },
-}
+};
 </script>

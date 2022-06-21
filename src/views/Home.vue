@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { login, logout, isLogged } from "../utils/auth";
+import { login, logOut, isLogged } from "../utils/auth";
 
 export default {
   name: "Home",
@@ -25,7 +25,7 @@ export default {
     },
     handleLogout() {
       this.isLogged = false;
-      logout();
+      logOut();
     },
   },
   data() {
